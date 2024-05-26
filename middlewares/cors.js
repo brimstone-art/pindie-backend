@@ -7,7 +7,8 @@ const allowedCors = [
   "https://br-stone.nomoredomainswork.ru",
   "https://br-domain.nomoredomainswork.ru",
   "https://br-domain.nomoredomainswork.ru/api/games",
-  "https://br-domain.nomoredomainswork.ru/api/categories"
+  "https://br-domain.nomoredomainswork.ru/api/categories",
+  "https://br-domain.nomoredomainswork.ru/api"
 ];
 
 function cors(req, res, next) {
