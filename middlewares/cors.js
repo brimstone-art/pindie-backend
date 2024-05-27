@@ -1,9 +1,4 @@
 const allowedCors = [
-  "http://localhost:3001",
-  "http://localhost:3000",
-  "http://br-stone.nomoredomainswork.ru",
-  "https://br-stone.nomoredomainswork.ru",
-  "http://br-stone.nomoredomainswork.ru",
   "https://br-stone.nomoredomainswork.ru",
   "https://br-domain.nomoredomainswork.ru",
   "https://br-domain.nomoredomainswork.ru/api/games",
