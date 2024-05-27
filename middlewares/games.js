@@ -67,11 +67,24 @@ const checkEmptyFields = async (req, res, next) => {
     next();
     return;
   }
-    res.setHeader("Content-Type", "application/json");
-        res.status(400).send(JSON.stringify({ message: "Заполни все поля" }));
+  if (
+    !req.body.title ||
+    !req.body.description ||
+    !req.body.image ||
+    !req.body.link ||
+    !req.body.developer
+  ) {
+    res.status(400).send({ message: "Заполни все поля" });
+  } else {
+    next();
+  }
 };
 
 const checkIfCategoriesAvaliable = async (req, res, next) => {
+  if(req.isVoteRequest) {
+    next();
+    return;
+  }
 if (!req.body.categories || req.body.categories.length === 0) {
   res.setHeader("Content-Type", "application/json");
       res.status(400).send(JSON.stringify({ message: "Выбери хотя бы одну категорию" }));
@@ -107,10 +120,10 @@ const checkIsGameExists = async (req, res, next) => {
 };
 
 const checkIsVoteRequest = async (req, res, next) => {
-if (Object.keys(req.body).length === 1 && req.body.users) {
-  req.isVoteRequest = true;
-}
-next();
+  if (Object.keys(req.body).length === 1 && req.body.users) {
+    req.isVoteRequest = true;
+  }
+  next();
 };
 
 module.exports = {
